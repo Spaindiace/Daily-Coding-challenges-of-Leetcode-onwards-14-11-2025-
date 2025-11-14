@@ -1,0 +1,50 @@
+// Cpp code 
+
+class Solution {
+public:
+    vector<vector<int>> rangeAddQueries(int n, vector<vector<int>>& queries) {
+        vector<vector<int>> mat(n, vector<int>(n, 0));
+        for (auto& k : queries) {
+            int r1 = k[0];
+            int r2 = k[2];
+            int c1 = k[1];
+            int c2 = k[3];
+            for (int i = r1; i <= r2; i++) {
+                for (int j = c1; j <= c2; j++) {
+                    mat[i][j]++;
+                }
+            }
+        }
+        return mat;
+    }
+};
+
+// Java  CODE 
+
+class Solution {
+    public int[][] rangeAddQueries(int n, int[][] queries) {
+        int[][] mat = new int[n][n];
+
+        for (int[] k : queries) {
+            int r1 = k[0];
+            int c1 = k[1];
+            int r2 = k[2];
+            int c2 = k[3];
+
+            for (int i = r1; i <= r2; i++) {
+                for (int j = c1; j <= c2; j++) {
+                    mat[i][j]++;
+                }
+            }
+        }
+
+        return mat;
+    }
+}
+
+
+
+Date : 14-11-2025     writter: Akash Debnath 
+
+
+
