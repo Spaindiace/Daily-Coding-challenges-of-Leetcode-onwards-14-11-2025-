@@ -1,0 +1,32 @@
+// C++ code 
+
+class Solution {
+public:
+#define ll long long
+    const int MOD = 1e9 + 7;
+    int numSub(string s) {
+        int n = s.size();
+        int l = 0;
+        ll cnt = 0;
+        for (int i = 0; i < n; i++) {
+            if (s[i] == '0') {
+                continue;
+            } else {
+                l = i + 1;
+                int len = 1;
+                while (l < n) {
+                    if (s[l] == '0') {
+                        break;
+                    } else {
+                        len++;
+                        l++;
+                        continue;
+                    }
+                }
+                cnt = (cnt + (ll)len * (len + 1) / 2) % MOD;
+                i = l - 1;
+            }
+        }
+        return cnt;
+    }
+};
