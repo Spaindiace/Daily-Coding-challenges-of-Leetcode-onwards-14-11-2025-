@@ -1,0 +1,31 @@
+// c++ code 
+
+class Solution {
+public:
+    bool kLengthApart(vector<int>& nums, int k) {
+        long long n=nums.size();
+        vector<long long>str;
+         for(long long i=0; i<n; i++){
+               if(nums[i]==1){
+                    str.push_back(i);
+               }
+               else{
+                   continue;
+               }
+         }
+         if(str.size()<=1){
+              return true;
+         }
+       for(long long i=0; i<str.size()-1; i++){
+         if(abs(str[i]-str[i+1])-1>=k){
+              continue;
+         }
+         else{
+               return false;
+         }
+       }
+       return true;
+
+         
+    }
+};
