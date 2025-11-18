@@ -1,0 +1,35 @@
+// c++ code 
+
+class Solution {
+public:
+    bool isOneBitCharacter(vector<int>& bits) {
+        int n = bits.size();
+        if (n == 1) {
+            if (bits[0] == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        int count0 = count(bits.begin(), bits.end(), 0);
+        if (count0 == n) {
+            return true;
+        }
+        for (int i = 0; i < n;) {
+            if (i == n - 1) {
+                if (bits[i] == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (i != n - 1 && bits[i] == 0) {
+                i++;
+            } else if (i != n - 1 && bits[i] == 1) {
+                i += 2;
+            }
+        }
+        return false;
+    }
+};
+
