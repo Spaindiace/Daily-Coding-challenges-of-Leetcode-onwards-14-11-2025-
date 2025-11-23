@@ -1,0 +1,19 @@
+// c++
+
+class Solution {
+public:
+    int maxSumDivThree(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>dp(3,INT_MIN);
+        dp[0]=0;
+        for(auto&k:nums){
+             vector<int>temp=dp;
+              for(int i=0; i<3; i++){
+                 int rem=(i+k)%3;
+                  temp[rem]=max(temp[rem],dp[i]+k);
+              }
+              dp=temp;
+        }
+        return dp[0];
+    }
+};
