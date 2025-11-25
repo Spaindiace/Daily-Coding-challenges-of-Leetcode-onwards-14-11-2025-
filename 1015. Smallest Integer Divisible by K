@@ -1,0 +1,26 @@
+// c++
+
+class Solution {
+public:
+    int smallestRepunitDivByK(int k) {
+        int n=0;
+        if(k%2==0||k%5==0){
+               return -1;
+        }
+        else {
+            bool got=false;
+            int cnt=0;
+            while(!got){
+                   n=(n*10+1)%k;
+                   cnt++;
+                   if(n%k==0){
+                        got=true;
+                   }
+            }
+            return cnt;
+               
+        }
+        return 0;
+
+    }
+};
